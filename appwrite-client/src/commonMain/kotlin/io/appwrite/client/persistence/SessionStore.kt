@@ -6,7 +6,7 @@ package io.appwrite.client.persistence
  * On iOS: UserDefaults
  * On JVM: java.util.prefs.Preferences
  */
-expect class SessionStore() {
+expect class SessionStore(identifier: String = "APPWRITE") {
     fun save(key: String, value: String)
     fun load(key: String): String?
     fun remove(key: String)

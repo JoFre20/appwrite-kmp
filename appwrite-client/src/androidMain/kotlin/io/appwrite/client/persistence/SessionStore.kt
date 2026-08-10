@@ -3,10 +3,10 @@ package io.appwrite.client.persistence
 import android.content.Context
 import android.content.SharedPreferences
 
-actual class SessionStore actual constructor() {
+actual class SessionStore actual constructor(identifier: String) {
     
     private val prefs: SharedPreferences = AndroidContextProvider.context.getSharedPreferences(
-        "io.appwrite.session",
+        "io.appwrite.session.${identifier}",
         Context.MODE_PRIVATE
     )
 

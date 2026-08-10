@@ -2,9 +2,9 @@ package io.appwrite.client.persistence
 
 import platform.Foundation.NSUserDefaults
 
-actual class SessionStore actual constructor() {
+actual class SessionStore actual constructor(identifier: String) {
     private val defaults = NSUserDefaults.standardUserDefaults
-    private val prefix = "io.appwrite.session."
+    private val prefix = "io.appwrite.session.${identifier}."
 
     actual fun save(key: String, value: String) {
         defaults.setObject(value, forKey = prefix + key)

@@ -6,8 +6,8 @@ package io.appwrite.client.persistence
  * Implemented via small `js(...)` shims so the module does not need the
  * optional `kotlinx-browser` DOM artifact on its classpath.
  */
-actual class SessionStore actual constructor() {
-    private val prefix = "io.appwrite.session."
+actual class SessionStore actual constructor(identifier: String) {
+    private val prefix = "io.appwrite.session.${identifier}."
 
     actual fun save(key: String, value: String) {
         lsSet(prefix + key, value)
